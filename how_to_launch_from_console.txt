@@ -1,0 +1,11 @@
+//Копируем строки в консоль
+
+python C:\Users\alexa\PycharmProjects\Semantic-Mono-Depth\monodepth_main.py --dataset kitti --mode recognize --data_path C:\Temp\recognition --output_dir C:\Temp\result --filename C:\Users\alexa\PycharmProjects\Semantic-Mono-Depth\utils\filenames\recognition.txt --task depth --checkpoint_path C:\Temp\checkpoints\vgg\model-16000 --encoder vgg
+
+python C:\Users\alexa\PycharmProjects\Semantic-Mono-Depth\utils\evaluate_kitti.py --split kitti_test --predicted_disp_path C:\Temp\result\disparities_pp.npy --gt_path C:\Temp\train
+
+train --data_path C:\Temp\train 
+
+python C:\Users\alexa\PycharmProjects\Semantic-Mono-Depth\utils\evaluate_kitti.py --split kitti_test --predicted_disp_path C:\Temp\result\disparities_pp.npy --gt_path C:\Temp\recognition --mode recognize
+
+python C:\Users\alexa\PycharmProjects\Semantic-Mono-Depth\monodepth_main_recognition.py --dataset kitti --mode recognize --data_path C:\Temp\recognition --output_dir C:\Temp\result --filename C:\Users\alexa\PycharmProjects\Semantic-Mono-Depth\utils\filenames\recognition.txt --task depth --checkpoint_path C:\Temp\checkpoints\vgg\model-16000 --encoder vgg
